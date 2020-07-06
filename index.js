@@ -56,6 +56,7 @@ const userQuestions = [
         message: "What is your e-mail??"
     },
 ]
+//Function that writes the readme file.
 inquirer.prompt(userQuestions)
     .then(function (data) {
 

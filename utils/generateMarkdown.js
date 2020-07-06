@@ -1,4 +1,5 @@
 // function to generate markdown for README
+//Uses template literals to get data from the inquirer prompts and insert it into the markdown.
 function generateMarkdown(answers) {
   return `# ${answers.title}
   ![](https://img.shields.io/badge/License-${answers.license}-blue)
