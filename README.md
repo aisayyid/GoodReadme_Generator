@@ -23,6 +23,7 @@
  ![](Images/fswritefile.png)
  
  - Requires util (can be seen above in first image).  This is the markdown layed out for the readme.  Using template literals, it grabs the users answers from the prompt questions and inserts them into the readme in their designated location.
+ 
  ![](Images/markdown.png)
  
   ## License
