@@ -57,21 +57,20 @@ const userQuestions = [
     },
 ]
 inquirer.prompt(userQuestions)
-        .then(function (data) {
+    .then(function (data) {
 
+        var filename = data.title.toLowerCase().split(' ').join('') + ".md";
 
-    var filename = data.title.toLowerCase().split(' ').join('') + ".md";
+        fs.writeFile(filename, generateMarkdown(data), function (err) {
 
-    fs.writeFile(filename, generateMarkdown(data), function (err) {
+            if (err) {
+                return console.log(err);
+            }
 
-        if (err) {
-            return console.log(err);
-        }
+            console.log("Read me generation successfull!");
 
-        console.log("Read me generation successfull!");
-
-    });
-});;
+        });
+    });;
 
 
 

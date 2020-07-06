@@ -23,9 +23,7 @@ function generateMarkdown(answers) {
   ${answers.tests}
   ## Questions
   For any questions, [mailto:${answers.email}], or visit my [GitHub] (https://github.com/${answers.github}) 
- 
-
-`;
+ `;
 }
 
 module.exports = generateMarkdown;
