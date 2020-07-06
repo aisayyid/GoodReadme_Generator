@@ -1,7 +1,7 @@
 var inquirer = require("inquirer");
 var fs = require('fs');
 // array of questions for user
-inquirer.prompt([
+return inquirer.prompt([
     {
         type: "input",
         name: "title",
@@ -14,11 +14,6 @@ inquirer.prompt([
     },
     {
         type: "input",
-        name: "table of contents",
-        message: "What items would you like to make up your table of contents?"
-    },
-    {
-        type: "input",
         name: "installation",
         message: "Describe the installation process for this project."
     },
@@ -28,9 +23,15 @@ inquirer.prompt([
         message: "How do you use the project?"
     },
     {
-        type: "input",
+        type: "list",
         name: "license",
-        message: "Licensing.  What is the user allowed to do with the project?"
+        message: "Choose the licensing you would like to use for your application.",
+        choices: [
+            "MIT",
+            "Mozilla Public License 2.0",
+            "Apache License 2.0",
+            "The Unlicense"
+        ]
     },
     {
         type: "input",
@@ -44,13 +45,32 @@ inquirer.prompt([
     },
     {
         type: "input",
-        name: "questions",
-        message: "Put any questions here."
+        name: "github",
+        message: "What is your github username?"
+    },
+    {
+        type: "input",
+        name: "e-mail",
+        message: "What is your e-mail??"
     },
 
 
 
-]);
+
+]).then(function (data) {
+
+    var filename = data.name.toLowerCase().split(' ').join('') + ".json";
+
+    fs.writeFile(filename, JSON.stringify(data, null, '\t'), function (err) {
+
+        if (err) {
+            return console.log(err);
+        }
+
+        console.log("Success!");
+
+    });
+});;
 
 // function to write README file
 function writeToFile(fileName, data) {
