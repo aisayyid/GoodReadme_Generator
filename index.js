@@ -1,6 +1,8 @@
-var inquirer = require("inquirer");
-var fs = require('fs');
+const inquirer = require("inquirer");
+const fs = require('fs');
+const generateMarkdown = require("./utils/generateMarkdown");
 // array of questions for user
+function promptUser() {
 return inquirer.prompt([
     {
         type: "input",
@@ -61,13 +63,13 @@ return inquirer.prompt([
 
     var filename = data.name.toLowerCase().split(' ').join('') + ".json";
 
-    fs.writeFile(filename, JSON.stringify(data, null, '\t'), function (err) {
+    fs.writeFile(filename, generateMarkdown(data), function (err) {
 
         if (err) {
             return console.log(err);
         }
 
-        console.log("Success!");
+        console.log("Read me generation successfull!");
 
     });
 });;
