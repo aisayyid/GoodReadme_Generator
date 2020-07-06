@@ -13,6 +13,7 @@
   Having Node installed, write "npm i" into the command line to install all dependencies."
   ## Usage
   User answers prompt questions.  The input data is then used to generate a professional readme document for projects.
+  ![](Images/Inquirer_prompts.png)
   ## License
   MIT
   ## Contributing
