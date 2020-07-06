@@ -2,8 +2,8 @@ const inquirer = require("inquirer");
 const fs = require('fs');
 const generateMarkdown = require("./utils/generateMarkdown");
 // array of questions for user
-function promptUser() {
-return inquirer.prompt([
+
+const userQuestions = [
     {
         type: "input",
         name: "title",
@@ -52,16 +52,15 @@ return inquirer.prompt([
     },
     {
         type: "input",
-        name: "e-mail",
+        name: "email",
         message: "What is your e-mail??"
     },
+]
+inquirer.prompt(userQuestions)
+        .then(function (data) {
 
 
-
-
-]).then(function (data) {
-
-    var filename = data.name.toLowerCase().split(' ').join('') + ".json";
+    var filename = data.title.toLowerCase().split(' ').join('') + ".md";
 
     fs.writeFile(filename, generateMarkdown(data), function (err) {
 
@@ -74,14 +73,6 @@ return inquirer.prompt([
     });
 });;
 
-// function to write README file
-function writeToFile(fileName, data) {
-}
 
-// function to initialize program
-function init() {
 
-}
 
-// function call to initialize program
-init();
