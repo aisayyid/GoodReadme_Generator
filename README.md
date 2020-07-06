@@ -13,7 +13,9 @@
   Having Node installed, write "npm i" into the command line to install all dependencies."
   ## Usage
   User answers prompt questions.  The input data is then used to generate a professional readme document for projects.
+  - Requires inquirer. Using inquirers type,name, and message, I set up the prompts to get the information needed to create a professional readme.
   ![](Images/Inquirer_prompts.png)
+  
   ## License
   MIT
   ## Contributing
